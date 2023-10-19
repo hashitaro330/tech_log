@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Sphinx プロジェクトの立ち上げ方 &#8212; Tech Log</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="prev" title="1. Terraform とは" href="../Automation/Terraform/basic.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../Automation/Terraform/basic.html" title="1. Terraform とは"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Tech Log</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Sphinx プロジェクトの立ち上げ方</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="sphinx">
+<h1>Sphinx プロジェクトの立ち上げ方<a class="headerlink" href="#sphinx" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2>Sphinx とは<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python製のドキュメント生成ツール
+reSTやmarkdownで書かれたファイルをHTMLなど変換する。
+github Pagesと連携することで、github上でドキュメントを公開できる。
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>インストールとクイックスタート<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<p>python 環境がインストールされていることが前提</p>
+<p>以下のコマンドでインストールされているか確認して、されていなければインストールする。</p>
+<blockquote>
+<div><p>$ python -V</p>
+</div></blockquote>
+<p>pip で sphinx を install</p>
+<blockquote>
+<div><p>$ pip install sphinx</p>
+</div></blockquote>
+<p>sphinx の quickstar を実行。対話形式で設定</p>
+<blockquote>
+<div><p>$ sphinx-quickstart</p>
+</div></blockquote>
+<p>Build してみる</p>
+<blockquote>
+<div><p>$ make html</p>
+</div></blockquote>
+<p>build/html/index.html をブラウザで開くと、quickstart の画面が確認できる。</p>
+</section>
+<section id="md">
+<h2>md ファイルでドキュメント作成<a class="headerlink" href="#md" title="この見出しへのパーマリンク">¶</a></h2>
+<p>まず事前準備として、myst-parser をインストール</p>
+<blockquote>
+<div><p>pip install --upgrade myst-parser</p>
+</div></blockquote>
+<p>conf.py を修正</p>
+<p>以下を追加する</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;myst_parser&#39;</span>
+<span class="p">]</span>
+
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;.rst&#39;</span><span class="p">:</span> <span class="s1">&#39;restructuredtext&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;.md&#39;</span><span class="p">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>実行手順<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<p>make html を実行することで、更新される</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">目次</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Sphinx プロジェクトの立ち上げ方</a><ul>
+<li><a class="reference internal" href="#id1">Sphinx とは</a></li>
+<li><a class="reference internal" href="#id2">インストールとクイックスタート</a></li>
+<li><a class="reference internal" href="#md">md ファイルでドキュメント作成</a></li>
+<li><a class="reference internal" href="#id3">実行手順</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="../Automation/Terraform/basic.html"
+                          title="前の章へ"><span class="section-number">1. </span>Terraform とは</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Sphinx/quickStart.md.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../Automation/Terraform/basic.html" title="1. Terraform とは"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Tech Log</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Sphinx プロジェクトの立ち上げ方</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, hashitaro330.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    </div>
+  </body>
+</html>
